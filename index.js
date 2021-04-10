@@ -69,43 +69,7 @@ function writeToFile(fileName, data) {
     const { title, website, screenshot, description, install, usage, credits, reporting, contributing, license } = data;
     const date = yearNpm();
 
-    const content = 
-        `# ${title}
-
-        ## Description
-
-        ${description}
-
-        [Deployed Website](${website})
-
-        ![Picture of project website](${screenshot})
-
-        ## How to Install
-
-        ${install}
-
-        ## How to Use
-
-        ${usage}
-
-        ## How to Contribute to the Repository
-
-        ${contributing}
-
-        ## How to Report Bugs
-
-        ${reporting}
-
-        ## Credits
-
-        ${credits}
-
-        ## License
-
-        Copyright ${author} ${date}
-
-        ${license}
-        `
+    
 
     fs.writeFile(fileName, content, (err) =>
         err ? console.log(error) : console.log('README created!'))
