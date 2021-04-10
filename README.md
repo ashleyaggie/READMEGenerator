@@ -37,7 +37,9 @@
 
   THEN a high-quality, professional README.md is generated with the title of my project and sections entitled Description, Table of Contents, Installation, Usage, License, Contributing, Tests, and Questions
 
-    * Title, Description, Installation, Usage, License, Contributing, Tests, and Questions part of prompts. Table of Contents is added automatically.
+    * Title, Description, Installation, Usage, License, Contributing, Tests, and Questions part of prompts.
+    
+    * Table of Contents is added automatically.
 
   WHEN I enter my project title
 
@@ -49,7 +51,9 @@
 
   THEN this information is added to the sections of the README entitled Description, Installation, Usage, Contributing, and Tests
 
-    * Added to the README by using the generateMarkdown function provided with the response data and then the generated content is given to the writeToFile function.
+    * Added to the README by using the generateMarkdown function provided with the response data.
+    
+    * Then the generated content is given to the writeToFile function in index.js.
 
   WHEN I choose a license for my application from a list of options
 
