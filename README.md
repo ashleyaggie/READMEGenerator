@@ -25,7 +25,7 @@
 
   [Link to video demonstration](https://drive.google.com/file/d/1IHlTkSWuQuvep4m9N7t2l_ceNzmkauwC/view)
 
-  [Example README](./README.md)
+  [Example README](./README-sample.md)
 
   Example picture:
 
