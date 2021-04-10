@@ -98,6 +98,8 @@ function generateMarkdown(data) {
 
   [Deployed Website](${data.website})
 
+  Example picture:
+
   ![Picture of project website](${data.screenshot})
 
   ## Installation

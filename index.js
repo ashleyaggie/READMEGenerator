@@ -52,12 +52,12 @@ const questions = [
     },
     {
         type: 'input',
-        message: `Please list how to contribute to your project or leave blank and the Contributor Covenant will be used.`,
+        message: `Please list how to contribute to your project.`,
         name: 'contributing'
     },
     {
         type: 'list',
-        message: `Which of these sounds like your project's situation? Select none and MIT license will be used.`,
+        message: `Please choose a license.`,
         name: 'license',
         choices: ['Apache','GNU','MIT','ISC','Mozilla','Boost Software']
     },
