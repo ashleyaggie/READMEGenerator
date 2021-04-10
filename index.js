@@ -67,8 +67,7 @@ const questions = [
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {
-    const { title, website, screenshot, description, install, usage, credits, reporting, contributing, license } = data;
+function writeToFile(fileName, content) {
     
     fs.writeFile(fileName, content, (err) =>
         err ? console.log(error) : console.log('README created!'))
@@ -82,11 +81,10 @@ function init() {
     .then(ans => {
         var data = ans;
 
-        console.log(data)
-
         return data;
     })
     .then((data) => generateMarkdown(data))
+    .then((content) => writeToFile('README.md',content))
     .catch((err) => console.log(err));
 }
 

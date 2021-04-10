@@ -1,27 +1,30 @@
 const yearNpm = require('year');
 
 var liBadge;
+var liLink;
+var licenseFull;
 
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
   switch(license) {
     case 'Apache':
-      liBadge = '[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)';
+      liBadge = '[License: Apache](https://img.shields.io/badge/License-Apache%202.0-blue.svg)';
       break;
     case 'GNU':
-      liBadge = '[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)';      break;
+      liBadge = '[License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)';
+      break;
     case 'MIT':
-      liBadge = '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)';
+      liBadge = '[License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)';
       break;
     case 'ISC':
-      liBadge = '[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)';
+      liBadge = '[License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)';
       break;
     case 'Mozilla':
-      liBadge = '[![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)';
+      liBadge = '[License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)';
       break;
     case 'Boost Software':
-      liBadge = '[![License](https://img.shields.io/badge/License-Boost%201.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)';
+      liBadge = '[License: Boost Software](https://img.shields.io/badge/License-Boost%201.0-lightblue.svg)';
       break;
     default:
       liBadge = '';
@@ -58,7 +61,7 @@ function renderLicenseLink(license) {
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
 function renderLicenseSection(liBadge,liLink) {
-  var licenseFull = `[![License](${liBadge})](${liLink})`
+  licenseFull = `[!${liBadge}](${liLink})`
   if (!liBadge || !liLink) {
     licenseFull = '';
   }
@@ -79,14 +82,15 @@ function generateMarkdown(data) {
 
   ## Table of Contents
 
-  1. Description
-  2. Installation
-  3. Usage
-  4. Contributing
-  5. Issues
-  6. Credits
-  7. License
+  1. [Description](#desc)
+  2. [Installation](#install)
+  3. [Usage](#usage)
+  4. [Contributing](#contrib)
+  5. [Issues](#report)
+  6. [Credits](#cred)
+  7. [License](#license)
 
+  <a name="desc"></a>
   ## Description
 
   ${data.description}
@@ -95,26 +99,32 @@ function generateMarkdown(data) {
 
   ![Picture of project website](${data.screenshot})
 
+  <a name="install"></a>
   ## How to Install
 
   ${data.install}
 
+  <a name="usage"></a>
   ## How to Use
 
   ${data.usage}
 
+  <a name="contrib"></a>
   ## How to Contribute to the Repository
 
   ${data.contributing}
 
+  <a name="report"></a>
   ## How to Report Bugs
 
   ${data.reporting}
 
+  <a name="cred"></a>
   ## Credits
 
   ${data.credits}
 
+  <a name="license"></a>
   ## License
 
   Copyright ${data.author} ${date}
