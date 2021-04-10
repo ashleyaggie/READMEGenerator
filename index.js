@@ -1,8 +1,10 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
-const yearNpm = require('year');
 const fs = require('fs');
 const generateMarkdown = require('./utils/generateMarkdown');
+
+var liBadge;
+var liLink;
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -60,31 +62,36 @@ const questions = [
         type: 'list',
         message: `Which of these sounds like your project's situation? Select none and MIT license will be used.`,
         name: 'license',
-        choices: ['I need to work in a community.','I want it simple and permissive.','I care about sharing improvements.','None']
+        choices: ['Apache','GNU','MIT','ISC','Mozilla','Boost Software']
     }
 ];
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
     const { title, website, screenshot, description, install, usage, credits, reporting, contributing, license } = data;
-    const date = yearNpm();
-
     
-
     fs.writeFile(fileName, content, (err) =>
         err ? console.log(error) : console.log('README created!'))
 }
 
 // TODO: Create a function to initialize app
 function init() {
-    inquire
-    .prompt([questions])
-    .then(function(response) {
-        var data = response;
-        var fileName = 'README.md';
-        writeToFile(fileName,data);
+    console.log('startInit');
+    inquirer
+    .prompt(questions)
+    .then(ans => {
+        var data = ans;
+
+        console.log(data)
+
+        return data;
     })
+    .then((data) => generateMarkdown(data))
+    .catch((err) => console.log(err));
 }
 
 // Function call to initialize app
 init();
+
+// liBadge = genMark.renderLicenseBadge(data.license);
+// liLink = genMark.renderLicenseLink(data.license);
