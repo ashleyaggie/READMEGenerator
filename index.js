@@ -3,9 +3,6 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 const generateMarkdown = require('./utils/generateMarkdown');
 
-var liBadge;
-var liLink;
-
 // TODO: Create an array of questions for user input
 const questions = [
     {
@@ -63,6 +60,21 @@ const questions = [
         message: `Which of these sounds like your project's situation? Select none and MIT license will be used.`,
         name: 'license',
         choices: ['Apache','GNU','MIT','ISC','Mozilla','Boost Software']
+    },
+    {
+        type: 'input',
+        message: `Any tests?`,
+        name: 'test'
+    },
+    {
+        type: 'input',
+        message: `Please provide your github username.`,
+        name: 'githubUser'
+    },
+    {
+        type: 'input',
+        message: `Please provide your email.`,
+        name: 'email'
     }
 ];
 
@@ -75,7 +87,6 @@ function writeToFile(fileName, content) {
 
 // TODO: Create a function to initialize app
 function init() {
-    console.log('startInit');
     inquirer
     .prompt(questions)
     .then(ans => {
@@ -90,6 +101,3 @@ function init() {
 
 // Function call to initialize app
 init();
-
-// liBadge = genMark.renderLicenseBadge(data.license);
-// liLink = genMark.renderLicenseLink(data.license);

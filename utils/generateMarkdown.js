@@ -71,8 +71,6 @@ function renderLicenseSection(liBadge,liLink) {
 function generateMarkdown(data) {
   const date = yearNpm();
 
-  console.log(data);
-
   renderLicenseBadge(data.license);
   renderLicenseLink(data.license);
 
@@ -80,17 +78,20 @@ function generateMarkdown(data) {
 
   return `# ${data.title}
 
+  ${licenseFull}
+
   ## Table of Contents
 
-  1. [Description](#desc)
-  2. [Installation](#install)
-  3. [Usage](#usage)
-  4. [Contributing](#contrib)
-  5. [Issues](#report)
-  6. [Credits](#cred)
-  7. [License](#license)
+  1. [Description](#Description)
+  2. [Installation](#Installation)
+  3. [Usage](#Usage)
+  4. [Contributing](#Contributing)
+  5. [Issues](#Issues)
+  6. [Credits](#Credits)
+  7. [License](#License)
+  8. [Tests](#Tests)
+  9. [Questions](#Questions)
 
-  <a name="desc"></a>
   ## Description
 
   ${data.description}
@@ -99,37 +100,42 @@ function generateMarkdown(data) {
 
   ![Picture of project website](${data.screenshot})
 
-  <a name="install"></a>
-  ## How to Install
+  ## Installation
 
   ${data.install}
 
-  <a name="usage"></a>
-  ## How to Use
+  ## Usage
 
   ${data.usage}
 
-  <a name="contrib"></a>
-  ## How to Contribute to the Repository
+  ## Contributing
 
   ${data.contributing}
 
-  <a name="report"></a>
-  ## How to Report Bugs
+  ## Issues
 
   ${data.reporting}
 
-  <a name="cred"></a>
   ## Credits
 
   ${data.credits}
 
-  <a name="license"></a>
   ## License
 
   Copyright ${data.author} ${date}
 
-  ${licenseFull}`;
+  This is covered under the <a href='${liLink}'>${data.license}</a> license.
+
+  ## Tests
+
+  ${data.test}
+
+  ## Questions
+
+  Feel free to contact through the following with any questions:
+
+  Email: ${data.email}\n
+  Github: <a href='https://github.com/${data.githubUser}'>${data.githubUser}</a>`;
 }
 
 module.exports = generateMarkdown;
