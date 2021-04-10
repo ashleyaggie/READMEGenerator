@@ -3,6 +3,7 @@ const yearNpm = require('year');
 var liBadge;
 var liLink;
 var licenseFull;
+var deployWeb;
 
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
@@ -71,6 +72,12 @@ function renderLicenseSection(liBadge,liLink) {
 function generateMarkdown(data) {
   const date = yearNpm();
 
+  if (!data.website || data.website === 'none') {
+    deployWeb = ``;
+  } else {
+    deployWeb = `[Deployed Website](${data.website})`;
+  }
+
   renderLicenseBadge(data.license);
   renderLicenseLink(data.license);
 
@@ -96,7 +103,7 @@ function generateMarkdown(data) {
 
   ${data.description}
 
-  [Deployed Website](${data.website})
+  ${deployWeb}
 
   Example picture:
 
